@@ -4,6 +4,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const CategoryTitle = ({ item, color }) => {
   const navigation = useNavigation();
+
   const handlePressCard = () => {
     navigation.navigate("MealOverview", { id: item.id });
   };
