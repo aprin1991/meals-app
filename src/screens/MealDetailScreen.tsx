@@ -1,11 +1,31 @@
-import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { useLayoutEffect } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { MEALS } from "../../data/dummy-data";
+import IconButton from "../components/IconButton";
 import List from "../components/MealDetail/List";
 import SubTitle from "../components/MealDetail/SubTitle";
 import MealOptions from "../components/MealOptions";
 
 const MealDetailScreen = ({ route }) => {
+  const navigation = useNavigation();
+  const handleHeaderClicked = () => {
+    console.log("hamed clicked");
+  };
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return (
+          <IconButton
+            name="star"
+            size={24}
+            color="white"
+            onPress={handleHeaderClicked}
+          />
+        );
+      },
+    });
+  }, []);
   const id = route.params.id;
   const meal = MEALS.find((meal) => meal.id === id);
   return (

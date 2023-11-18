@@ -1,9 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import { StyleSheet, Text, View } from "react-native";
-
-const List = ({ items }) => {
+type TProps = {
+  items: string[];
+};
+const List: FC<TProps> = ({ items }) => {
   return items.map((step) => (
-    <View style={styles.listItem}>
+    <View key={step} style={styles.listItem}>
       <Text style={styles.itemText} key={step}>
         {step}
       </Text>
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e2b497",
   },
   itemText: {
-    color: "351401",
+    color: "#351401",
     textAlign: "center",
   },
 });

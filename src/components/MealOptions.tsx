@@ -1,7 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const MealOptions = ({
+type TProps = {
+  duration: String;
+  complexity: String;
+  affordability: String;
+  style?: Record<string, string>;
+  textStyle?: Record<string, string>;
+};
+
+const MealOptions: FC<TProps> = ({
   duration,
   complexity,
   affordability,
